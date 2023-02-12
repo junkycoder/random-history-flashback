@@ -37,7 +37,7 @@ jobs:
           type: "zip"
           filename: "random-history-flashback.${{ github.ref }}.zip"
           path: "."
-          exclusions: "*.git*"
+          exclusions: "*.git* *.sh"
       - name: Upload Release Artifact
         uses: softprops/action-gh-release@v1
         with:
