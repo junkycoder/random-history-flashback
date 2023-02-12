@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Random History Flashback",
+    "description": "Try me"
+  },
+  "extDesc": {
+    "message": "Click icon to navigate to a random page in your history.",
+    "description": "Extension description"
+  }
+}

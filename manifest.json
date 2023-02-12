@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "version": "0.1.0",
+  "name": "__MSG_extName__",
+  "default_locale": "en",
+  "description": "__MSG_extDesc__",
+  "action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "images/popup-icon-16.png",
+      "32": "images/popup-icon-32.png",
+      "64": "images/popup-icon-64.png"
+    },
+    "default_title": "Random History Flashback",
+    "default_popup": "popup.html",
+    "theme_icons": [
+      {
+        "light": "images/popup-icon-16.png",
+        "dark": "images/popup-icon-16.png",
+        "size": 16
+      },
+      {
+        "light": "images/popup-icon-32.png",
+        "dark": "images/popup-icon-32.png",
+        "size": 32
+      },
+      {
+        "light": "images/popup-icon-64.png",
+        "dark": "images/popup-icon-64.png",
+        "size": 64
+      }
+    ]
+  },
+  "permissions": [
+    "activeTab",
+    "history"
+  ]
+}

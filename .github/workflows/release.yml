@@ -1,0 +1,40 @@
+name: Release repo as extension ZIP
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create Changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: changelog
+        env:
+          REPO: ${{ github.repository }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ${{ steps.changelog.outputs.changelog }}
+      - name: Archive Extension Release
+        uses: thedoctor0/zip-release@main
+        with:
+          type: "zip"
+          filename: "random-history-flashback.${{ github.ref }}.zip"
+          path: "."
+          exclusions: "*.git*"
+      - name: Upload Release Artifact
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "random-history-flashback.${{ github.ref }}.zip"
