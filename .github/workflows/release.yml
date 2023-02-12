@@ -18,11 +18,10 @@ jobs:
         env:
           REPO: ${{ github.repository }}
       - name: Archive Extension Release
-        uses: thedoctor0/zip-release@main
+        uses: thedoctor0/zip-release@0.7.1
         with:
           type: "zip"
           filename: "random-history-flashback.${{ github.ref }}.zip"
-          path: "."
           exclusions: "*.git* *.sh"
       - name: Create Release
         id: create_release
